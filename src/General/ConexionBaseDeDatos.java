@@ -26,7 +26,7 @@ public class ConexionBaseDeDatos {
             }
             Connection connection;
 
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost/prueba",
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost/colegio",
                     "postgres", "UMGPROGRA2020");
 
             boolean valid = connection.isValid(50000);

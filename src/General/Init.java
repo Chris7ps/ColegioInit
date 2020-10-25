@@ -5,7 +5,7 @@
  */
 package General;
 
-import Ventanas.VentanaAlumno;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JDesktopPane;
@@ -80,11 +80,6 @@ public class Init implements ActionListener {
 
     }
 
-    public void initializeAlumno() {
-        VentanaAlumno ventanaAlumno = new VentanaAlumno();
-        ventanaAlumno.setSize(200, 200);
-        ventanaAlumno.setVisible(true);
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -95,8 +90,6 @@ public class Init implements ActionListener {
         } else if (a.equalsIgnoreCase("decrypt")) {
             System.out.println("Begin RAMBIT7 decryption.");
             //decryptRAMBIT7(input);
-        } else if (a.equalsIgnoreCase("alumno")) {
-            initializeAlumno();
         } else if (a.equalsIgnoreCase("exit")) {
             System.out.println("Terminating...");
             System.exit(0);

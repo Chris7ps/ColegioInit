@@ -87,9 +87,7 @@ public class Menu extends JFrame {
         ayuda = new JMenu("Ayuda");
 
         itemAlumno = new JMenuItem("Alumno");
-        itemAlumno.addActionListener((java.awt.event.ActionEvent evt) -> {
-            alumnoPerformed();
-        });
+        
         itemProfesor = new JMenuItem("Profesor");
         itemCursos = new JMenuItem("Curso");
         itemMatricular = new JMenuItem("Matricular");
@@ -110,17 +108,6 @@ public class Menu extends JFrame {
         barra.add(ayuda);
 
         setJMenuBar(barra);
-
-    }
-
-    private void alumnoPerformed() {
-        VentanaAlumno ventanaAlumno = new VentanaAlumno();
-        panel.add(ventanaAlumno);
-        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        ventanaAlumno.setSize(400, 500);
-        Dimension ventana = ventanaAlumno.getSize();
-        ventanaAlumno.setLocation((pantalla.width - ventana.width) / 2, (pantalla.height - ventana.height) / 25);
-        ventanaAlumno.setVisible(true);
 
     }
 }
