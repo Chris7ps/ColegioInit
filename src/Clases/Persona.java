@@ -12,6 +12,7 @@ import java.sql.Date;
  * @author chris
  */
 public class Persona {
+
     private String nombres;
     private long id;
     private boolean activo;

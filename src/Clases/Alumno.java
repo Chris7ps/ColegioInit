@@ -9,7 +9,8 @@ package Clases;
  *
  * @author chris
  */
-public class Alumno extends Persona{
+public class Alumno extends Persona {
+
     private String gradoAlumno;
 
     public Alumno() {
@@ -26,7 +27,5 @@ public class Alumno extends Persona{
     public void setGradoAlumno(String gradoAlumno) {
         this.gradoAlumno = gradoAlumno;
     }
-    
-    
-    
+
 }
