@@ -10,6 +10,7 @@ package Clases;
  * @author chris
  */
 public class Profesor extends Persona {
+
     private String gradoAcademico;
 
     public Profesor() {
@@ -26,6 +27,10 @@ public class Profesor extends Persona {
     public void setGradoAcademico(String gradoAcademico) {
         this.gradoAcademico = gradoAcademico;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return this.getNombres() + " " + this.getApellidos();
+    }
+
 }

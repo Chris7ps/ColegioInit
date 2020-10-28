@@ -38,6 +38,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
 
@@ -100,6 +101,15 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem3);
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/login3.png"))); // NOI18N
+        jMenuItem4.setText("Cursos");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
         jMenuBar1.add(jMenu2);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/reports3.png"))); // NOI18N
@@ -152,38 +162,35 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem3MouseClicked
 
-        Profesor ventanaProfesor = new Profesor();
+        Profesores ventanaProfesor = new Profesores();
         Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension ventana = ventanaProfesor.getSize();
 
         ventanaProfesor.setLocation((pantalla.width - ventana.width) / 2, (pantalla.height - ventana.height) / 25);
         ventanaProfesor.setVisible(true);
         jDesktopPane1.add(ventanaProfesor);
-        System.out.println(jDesktopPane1.size());
-        System.out.println(ventanaProfesor.getSize());
-
-        //Profesor ventanaProfesor = new Profesor();
-        //Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        //Dimension ventana = ventanaProfesor.getSize();
-        //ventanaProfesor.setLocation((pantalla.width - ventana.width) / 2, (pantalla.height - ventana.height) / 25);
-        //ventanaProfesor.setVisible(true);
-        //jDesktopPane1.add(ventanaProfesor);
-        //System.out.println(jDesktopPane1.size());
-        //System.out.println(ventanaProfesor.getSize());
 
     }//GEN-LAST:event_jMenuItem3MouseClicked
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        Profesor ventanaProfesor = new Profesor();
+        Profesores ventanaProfesor = new Profesores();
         Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension ventana = ventanaProfesor.getSize();
 
         ventanaProfesor.setLocation((pantalla.width - ventana.width) / 2, (pantalla.height - ventana.height) / 25);
         ventanaProfesor.setVisible(true);
         jDesktopPane1.add(ventanaProfesor);
-        System.out.println(jDesktopPane1.size());
-        System.out.println(ventanaProfesor.getSize());
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        Cursos ventanaCurso = new Cursos();
+        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension ventana = ventanaCurso.getSize();
+
+        ventanaCurso.setLocation((pantalla.width - ventana.width) / 2, (pantalla.height - ventana.height) / 25);
+        ventanaCurso.setVisible(true);
+        jDesktopPane1.add(ventanaCurso);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,5 +238,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }

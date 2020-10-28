@@ -13,14 +13,18 @@ public class Curso {
     private String nombreCurso;
     private int duracionCurso;
     private Profesor profesor;
+    private long id;
+    private boolean activo;
 
     public Curso() {
     }
 
-    public Curso(String nombreCurso, int duracionCurso, Profesor profesor) {
+    public Curso(String nombreCurso, int duracionCurso, Profesor profesor, long id, boolean activo) {
         this.nombreCurso = nombreCurso;
         this.duracionCurso = duracionCurso;
         this.profesor = profesor;
+        this.id = id;
+        this.activo = activo;
     }
 
     public String getNombreCurso() {
@@ -46,10 +50,20 @@ public class Curso {
     public void setProfesor(Profesor profesor) {
         this.profesor = profesor;
     }
-    
-    
 
- 
-    
-    
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }    
 }
