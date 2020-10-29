@@ -11,11 +11,9 @@ import java.sql.Date;
  *
  * @author chris
  */
-public class Persona {
+public class Persona extends BaseEntidad {
 
     private String nombres;
-    private long id;
-    private boolean activo;
     private String apellidos;
     private Date fechaDeNacimiento;
     private String cui;
@@ -24,10 +22,8 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String nombres, long id, boolean activo, String apellidos, Date fechaDeNacimiento, String cui, String genero) {
+    public Persona(String nombres, String apellidos, Date fechaDeNacimiento, String cui, String genero) {
         this.nombres = nombres;
-        this.id = id;
-        this.activo = activo;
         this.apellidos = apellidos;
         this.fechaDeNacimiento = fechaDeNacimiento;
         this.cui = cui;
@@ -40,22 +36,6 @@ public class Persona {
 
     public void setNombres(String nombres) {
         this.nombres = nombres;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
     }
 
     public String getApellidos() {

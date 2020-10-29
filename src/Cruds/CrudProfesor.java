@@ -29,8 +29,8 @@ public class CrudProfesor {
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 Long id = rs.getLong("id");
-                String nombres = rs.getString("nombre");
-                String apellido = rs.getString("apellido");
+                String nombres = rs.getString("nombres");
+                String apellido = rs.getString("apellidos");
                 String cui = rs.getString("cui");
                 String genero = rs.getString("genero");
                 Date fechanacimiento = rs.getDate("fechanacimiento");
@@ -62,8 +62,8 @@ public class CrudProfesor {
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 Long id = rs.getLong("id");
-                String nombres = rs.getString("nombre");
-                String apellido = rs.getString("apellido");
+                String nombres = rs.getString("nombres");
+                String apellido = rs.getString("apellidos");
                 String cui = rs.getString("cui");
                 String genero = rs.getString("genero");
                 Date fechanacimiento = rs.getDate("fechanacimiento");
@@ -85,18 +85,20 @@ public class CrudProfesor {
         return profesor;
     }
 
-    public static Profesor buscarProfesorPorCui(String cuiSearch) {
+    public static Profesor buscarProfesorPorCui(String cuiSearch, Boolean update, Long profesorId) {
         Profesor profesor = null;
         String sql = "SELECT * FROM profesor WHERE activo = true and cui = ?";
-
+        if (update) {
+            sql += "id <> " + profesorId;
+        }
         try {
             PreparedStatement stmt = ConexionBaseDeDatos.CONNECTION.prepareStatement(sql);
             stmt.setString(1, cuiSearch);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Long id = rs.getLong("id");
-                String nombres = rs.getString("nombre");
-                String apellido = rs.getString("apellido");
+                String nombres = rs.getString("nombres");
+                String apellido = rs.getString("apellidos");
                 String cui = rs.getString("cui");
                 String genero = rs.getString("genero");
 
@@ -120,7 +122,7 @@ public class CrudProfesor {
     }
 
     public static Boolean insertar(Profesor profesorInsertar) {
-        String sql = " INSERT INTO profesor (activo, nombre, apellido, "
+        String sql = " INSERT INTO profesor (activo, nombres, apellidos, "
                 + " fechaNacimiento, cui, genero) "
                 + " VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -143,7 +145,7 @@ public class CrudProfesor {
 
     public static Boolean actualizar(Profesor profesorActualizar) {
         String sql = " UPDATE profesor "
-                + " SET nombre = ?, apellido = ?, "
+                + " SET nombres = ?, apellidos = ?, "
                 + " fechaNacimiento = ?, cui = ?, genero = ? "
                 + " WHERE id = ? ";
         try {
@@ -187,8 +189,8 @@ public class CrudProfesor {
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 Long id = rs.getLong("id");
-                String nombres = rs.getString("nombre");
-                String apellido = rs.getString("apellido");
+                String nombres = rs.getString("nombres");
+                String apellido = rs.getString("apellidos");
                 String cui = rs.getString("cui");
                 String genero = rs.getString("genero");
                 Date fechanacimiento = rs.getDate("fechanacimiento");

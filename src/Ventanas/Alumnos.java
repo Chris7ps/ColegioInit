@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -19,7 +18,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -35,7 +33,6 @@ public class Alumnos extends javax.swing.JInternalFrame {
         txtCodigo.setEnabled(false);
         validarAccion();
         llenarComboGenero();
-        mascaraFecha();
         tabla();
 
     }
@@ -75,6 +72,7 @@ public class Alumnos extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         btnExportar = new javax.swing.JButton();
         btnCursos = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -120,7 +118,7 @@ public class Alumnos extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Apellidos:");
 
-        jLabel4.setText("Fecha de nacimiento:");
+        jLabel4.setText("Fecha de nacimiento");
 
         cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbGenero.addActionListener(new java.awt.event.ActionListener() {
@@ -235,6 +233,8 @@ public class Alumnos extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel10.setText("(dd/MM/aaaa):");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -255,7 +255,8 @@ public class Alumnos extends javax.swing.JInternalFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel3)
-                                            .addComponent(jLabel4))
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel10))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(txtFecha)
@@ -327,10 +328,13 @@ public class Alumnos extends javax.swing.JInternalFrame {
                                             .addComponent(jLabel7)
                                             .addComponent(txtGrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel4)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel10))
                                     .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(35, 35, 35))))
+                                .addGap(29, 29, 29))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -344,7 +348,7 @@ public class Alumnos extends javax.swing.JInternalFrame {
                             .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -365,7 +369,7 @@ public class Alumnos extends javax.swing.JInternalFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if (validarDatosRequeridos()) {
             enabled(false);
-            Alumno alumno = Cruds.CrudAlumno.buscarAlumnoPorCui(txtCui.getText());
+            Alumno alumno = Cruds.CrudAlumno.buscarAlumnoPorCui(txtCui.getText(), false, null);
             if (alumno != null) {
                 JOptionPane.showMessageDialog(null, "Ya existe un alumno con el CUI ingresado", "Failure", JOptionPane.ERROR_MESSAGE);
             } else {
@@ -399,7 +403,7 @@ public class Alumnos extends javax.swing.JInternalFrame {
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         if (validarDatosRequeridos()) {
             enabled(false);
-            Alumno alumno = Cruds.CrudAlumno.buscarAlumnoPorCui(txtCui.getText());
+            Alumno alumno = Cruds.CrudAlumno.buscarAlumnoPorCui(txtCui.getText(), true, Long.valueOf(txtCodigo.getText()));
             if (alumno != null) {
                 JOptionPane.showMessageDialog(null, "Ya existe un alumno con el CUI ingresado", "Failure", JOptionPane.ERROR_MESSAGE);
             } else {
@@ -501,17 +505,7 @@ public class Alumnos extends javax.swing.JInternalFrame {
         txtApellido.setText("");
         txtCui.setText("");
         txtGrado.setText("");
-        mascaraFecha();
-    }
-
-    private void mascaraFecha() {
-        try {
-            txtFecha.setText("");
-            MaskFormatter dateMask = new MaskFormatter("##/##/####");
-            dateMask.install(txtFecha);
-        } catch (ParseException e) {
-            System.out.println(e.toString());
-        }
+        txtFecha.setText("");
     }
 
     private void validarAccion() {
@@ -603,6 +597,7 @@ public class Alumnos extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox<String> cmbGenero;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

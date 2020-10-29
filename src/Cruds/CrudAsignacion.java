@@ -27,9 +27,9 @@ public class CrudAsignacion {
     public static List<Asignacion> obtenerCursosAsignadosAlumno(Long codigo) {
         List<Asignacion> listAsignaciones = new ArrayList<>();
         String sql = "select a.id, a.horainicio, a.horafinal, "
-                + "b.nombre as nombreAlumno, b.apellido as apellidoAlumno, "
-                + "c.nombrecurso, d.nombre as nombreProfesor, "
-                + "d.apellido as apellidoProfesor "
+                + "b.nombres as nombreAlumno, b.apellidos as apellidoAlumno, "
+                + "c.nombrecurso, d.nombres as nombreProfesor, "
+                + "d.apellidos as apellidoProfesor "
                 + "from asignacion a "
                 + "join alumno b on a.alumno_id = b.id "
                 + "join curso c on a.curso_id = c.id "
@@ -207,7 +207,7 @@ public class CrudAsignacion {
     public static List<Asignacion> alumnosAsignadosPorCurso(Long codigoCurso) {
         List<Asignacion> listAsignaciones = new ArrayList<>();
         String sql = "select a.id, a.horainicio, a.horafinal, "
-                + "c.id as alumnoId, c.cui, c.nombre, c.apellido, "
+                + "c.id as alumnoId, c.cui, c.nombres, c.apellidos, "
                 + "c.fechanacimiento, c.grado, c.genero "
                 + "from asignacion a "
                 + "join curso b on a.curso_id = b.id "

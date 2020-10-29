@@ -11,21 +11,21 @@ package Clases;
  */
 public class Profesor extends Persona {
 
-    private String gradoAcademico;
+    private String profesion;
 
     public Profesor() {
     }
 
-    public Profesor(String gradoAcademico) {
-        this.gradoAcademico = gradoAcademico;
+    public Profesor(String profesion) {
+        this.profesion = profesion;
     }
 
-    public String getGradoAcademico() {
-        return gradoAcademico;
+    public String getProfesion() {
+        return profesion;
     }
 
-    public void setGradoAcademico(String gradoAcademico) {
-        this.gradoAcademico = gradoAcademico;
+    public void setProfesion(String profesion) {
+        this.profesion = profesion;
     }
 
     @Override

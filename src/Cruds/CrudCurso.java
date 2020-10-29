@@ -25,7 +25,7 @@ public class CrudCurso {
         List<Curso> listCursos = new ArrayList<>();
         String sql = "SELECT a.id as cursoId, a.nombreCurso, "
                 + " a.duracionCurso, b.id as profesorId, b.activo, "
-                + " b.nombre as nombreProfesor, b.apellido as apellido "
+                + " b.nombres as nombreProfesor, b.apellidos as apellido "
                 + " FROM curso a "
                 + " JOIN profesor b on a.profesor_id = b.id"
                 + " WHERE a.activo = true ORDER BY a.id DESC ";
@@ -63,7 +63,7 @@ public class CrudCurso {
         Curso curso = null;
         String sql = "SELECT a.id as cursoId, a.nombreCurso, "
                 + " a.duracionCurso, b.id as profesorId, b.activo, "
-                + " b.nombre as nombreProfesor, b.apellido as apellido "
+                + " b.nombres as nombreProfesor, b.apellidos as apellido "
                 + " FROM curso a "
                 + " JOIN profesor b ON a.profesor_id = b.id"
                 + " WHERE a.activo = true and a.id =" + codigo;
