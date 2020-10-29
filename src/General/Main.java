@@ -5,7 +5,6 @@
  */
 package General;
 
-import Ventanas.Menu;
 import Ventanas.Principal;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -25,9 +24,6 @@ public class Main {
         Dimension ventana = principal.getSize();
         principal.setLocation((pantalla.width - ventana.width) / 2, (pantalla.height - ventana.height) / 2);
         principal.setVisible(true);
-
-        ConexionBaseDeDatos javaPostgreSQLBasic = new ConexionBaseDeDatos();
-        javaPostgreSQLBasic.connectDatabase();
     }
 
 }

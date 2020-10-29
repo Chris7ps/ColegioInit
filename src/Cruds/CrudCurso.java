@@ -147,4 +147,37 @@ public class CrudCurso {
             return Boolean.FALSE;
         }
     }
+
+    public static List<Curso> cursosNoAsignadosPorAlumno(Long codigoAlumno) {
+        List<Curso> listCursos = new ArrayList<>();
+        String sql = "SELECT * FROM curso WHERE id NOT IN( "
+                + "SELECT c.id FROM asignacion a "
+                + "JOIN alumno b ON a.alumno_id = b.id "
+                + "JOIN curso c ON a.curso_id = c.id "
+                + "WHERE b.id = ?) AND activo = true ";
+
+        try {
+            PreparedStatement stmt = ConexionBaseDeDatos.CONNECTION.prepareStatement(sql);
+            stmt.setLong(1, codigoAlumno);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Long id = rs.getLong("id");
+                String nombre = rs.getString("nombreCurso");
+                int duracionCurso = rs.getInt("duracionCurso");
+
+                Curso curso = new Curso();
+                curso.setId(id);
+                curso.setNombreCurso(nombre);
+                curso.setDuracionCurso(duracionCurso);
+
+                listCursos.add(curso);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+
+        return listCursos;
+
+    }
 }

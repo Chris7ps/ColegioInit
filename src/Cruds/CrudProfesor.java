@@ -176,4 +176,39 @@ public class CrudProfesor {
             return Boolean.FALSE;
         }
     }
+
+    public static List<Profesor> profesoresSinCurso() {
+        List<Profesor> listProfesores = new ArrayList<>();
+        String sql = "select b.* from curso a "
+                + "right join profesor b on a.profesor_id = b.id "
+                + "where a.id is null and b.activo = true ";
+
+        try (Statement stmt = ConexionBaseDeDatos.CONNECTION.createStatement()) {
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                Long id = rs.getLong("id");
+                String nombres = rs.getString("nombre");
+                String apellido = rs.getString("apellido");
+                String cui = rs.getString("cui");
+                String genero = rs.getString("genero");
+                Date fechanacimiento = rs.getDate("fechanacimiento");
+
+                Profesor profesor = new Profesor();
+                profesor.setId(id);
+                profesor.setNombres(nombres);
+                profesor.setApellidos(apellido);
+                profesor.setCui(cui);
+                profesor.setGenero(genero);
+                profesor.setFechaDeNacimiento(fechanacimiento);
+
+                listProfesores.add(profesor);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+
+        return listProfesores;
+
+    }
 }

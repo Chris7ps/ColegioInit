@@ -12,6 +12,9 @@ import java.sql.Time;
  * @author chris
  */
 public class Asignacion {
+
+    private long id;
+    private boolean activo;
     private Alumno alumno;
     private Time horaInicio;
     private Time horaFinal;
@@ -20,11 +23,29 @@ public class Asignacion {
     public Asignacion() {
     }
 
-    public Asignacion(Alumno alumno, Time horaInicio, Time horaFinal, Curso curso) {
+    public Asignacion(long id, boolean activo, Alumno alumno, Time horaInicio, Time horaFinal, Curso curso) {
+        this.id = id;
+        this.activo = activo;
         this.alumno = alumno;
         this.horaInicio = horaInicio;
         this.horaFinal = horaFinal;
         this.curso = curso;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     public Alumno getAlumno() {
@@ -58,8 +79,7 @@ public class Asignacion {
     public void setCurso(Curso curso) {
         this.curso = curso;
     }
-    
-    
-    
-    
+
+   
+
 }

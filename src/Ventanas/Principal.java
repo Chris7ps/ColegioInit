@@ -40,7 +40,10 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
@@ -114,11 +117,40 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/reports3.png"))); // NOI18N
         jMenu4.setText("Reportes");
+
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/suppliers.png"))); // NOI18N
+        jMenuItem6.setText("Alumnos por curso");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem6);
+
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/login3.png"))); // NOI18N
+        jMenuItem7.setText("Profesores sin cursos");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem7);
+
         jMenuBar1.add(jMenu4);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Information.png"))); // NOI18N
         jMenu5.setText("Ayuda");
         jMenu5.setPreferredSize(new java.awt.Dimension(71, 21));
+
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Information.png"))); // NOI18N
+        jMenuItem5.setText("Acerca de");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem5);
+
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -138,10 +170,6 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-
-    }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
         // TODO add your handling code here:
@@ -192,6 +220,40 @@ public class Principal extends javax.swing.JFrame {
         jDesktopPane1.add(ventanaCurso);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        AcercaDe acercaDe = new AcercaDe();
+        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension ventana = acercaDe.getSize();
+
+        acercaDe.setLocation((pantalla.width - ventana.width) / 2, (pantalla.height - ventana.height) / 25);
+        acercaDe.setVisible(true);
+        jDesktopPane1.add(acercaDe);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        AlumnosPorCurso alumnosPorCurso = new AlumnosPorCurso();
+        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension ventana = alumnosPorCurso.getSize();
+
+        alumnosPorCurso.setLocation((pantalla.width - ventana.width) / 2, (pantalla.height - ventana.height) / 25);
+        alumnosPorCurso.setVisible(true);
+        jDesktopPane1.add(alumnosPorCurso);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        ProfesoresSinCursos profesoresSinCursos = new ProfesoresSinCursos();
+        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension ventana = profesoresSinCursos.getSize();
+
+        profesoresSinCursos.setLocation((pantalla.width - ventana.width) / 2, (pantalla.height - ventana.height) / 25);
+        profesoresSinCursos.setVisible(true);
+        jDesktopPane1.add(profesoresSinCursos);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -239,5 +301,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     // End of variables declaration//GEN-END:variables
 }
