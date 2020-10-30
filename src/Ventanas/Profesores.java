@@ -71,6 +71,8 @@ public class Profesores extends javax.swing.JInternalFrame {
         btnBuscar = new javax.swing.JButton();
         btnExportar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtProfesion = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -221,6 +223,14 @@ public class Profesores extends javax.swing.JInternalFrame {
 
         jLabel7.setText("(dd/MM/aaaa):");
 
+        jLabel10.setText("Profesión:");
+
+        txtProfesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProfesionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -228,12 +238,12 @@ public class Profesores extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(471, 471, 471)
                 .addComponent(jLabel1)
-                .addContainerGap(473, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1044, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -261,9 +271,13 @@ public class Profesores extends javax.swing.JInternalFrame {
                                     .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtCui, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel10))
                                 .addGap(18, 18, 18)
-                                .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtProfesion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -288,15 +302,6 @@ public class Profesores extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnEliminar)
-                                .addGap(11, 11, 11)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnActualizar)
-                                    .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -318,13 +323,31 @@ public class Profesores extends javax.swing.JInternalFrame {
                                             .addComponent(jLabel3)
                                             .addComponent(jLabel4)
                                             .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel7)
-                                .addGap(47, 47, 47))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel10)
+                                            .addComponent(txtProfesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jLabel7)))
+                                .addGap(39, 39, 39))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnEliminar)
+                                        .addGap(11, 11, 11)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(btnActualizar)
+                                            .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -417,6 +440,7 @@ public class Profesores extends javax.swing.JInternalFrame {
                 txtCui.setText(profesor.getCui());
                 cmbGenero.getModel().setSelectedItem(profesor.getGenero());
                 txtFecha.setValue(profesor.getFechaDeNacimiento());
+                txtProfesion.setText(profesor.getProfesion());
             }
             enabled(true);
             validarAccion();
@@ -433,6 +457,10 @@ public class Profesores extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnExportarActionPerformed
 
+    private void txtProfesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProfesionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProfesionActionPerformed
+
     private void tabla() {
         try {
             DefaultTableModel tableModel = new DefaultTableModel() {
@@ -441,7 +469,7 @@ public class Profesores extends javax.swing.JInternalFrame {
                 }
             };
 
-            String[] columnas = {"Codigo", "Nombres", "Apellidos", "CUI", "Fecha de nacimiento", "Genero"};
+            String[] columnas = {"Codigo", "Nombres", "Apellidos", "CUI", "Fecha de nacimiento", "Genero","Profesion"};
             tableModel.setColumnIdentifiers(columnas);
             jTable1.setModel(tableModel);
             Object[] fila = new Object[tableModel.getColumnCount()];
@@ -454,6 +482,7 @@ public class Profesores extends javax.swing.JInternalFrame {
                 fila[3] = profesor.getCui();
                 fila[4] = new SimpleDateFormat("dd/MM/yyyy").format(profesor.getFechaDeNacimiento());
                 fila[5] = profesor.getGenero();
+                fila[6] = profesor.getProfesion();
 
                 tableModel.addRow(fila);
             }
@@ -469,6 +498,8 @@ public class Profesores extends javax.swing.JInternalFrame {
         txtApellido.setText("");
         txtCui.setText("");
         txtFecha.setText("");
+        txtProfesion.setText("");
+        
     }
 
     private void validarAccion() {
@@ -513,6 +544,7 @@ public class Profesores extends javax.swing.JInternalFrame {
         java.util.Date utilDate = (java.util.Date) txtFecha.getValue();
         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
         profesor.setFechaDeNacimiento(sqlDate);
+        profesor.setProfesion(txtProfesion.getText());
 
         return profesor;
     }
@@ -557,6 +589,7 @@ public class Profesores extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox<String> cmbGenero;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -574,5 +607,6 @@ public class Profesores extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCui;
     private javax.swing.JFormattedTextField txtFecha;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtProfesion;
     // End of variables declaration//GEN-END:variables
 }

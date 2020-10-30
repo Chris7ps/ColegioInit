@@ -34,6 +34,7 @@ public class CrudProfesor {
                 String cui = rs.getString("cui");
                 String genero = rs.getString("genero");
                 Date fechanacimiento = rs.getDate("fechanacimiento");
+                String profesion = rs.getString("profesion");
 
                 Profesor profesor = new Profesor();
                 profesor.setId(id);
@@ -42,6 +43,7 @@ public class CrudProfesor {
                 profesor.setCui(cui);
                 profesor.setGenero(genero);
                 profesor.setFechaDeNacimiento(fechanacimiento);
+                profesor.setProfesion(profesion);
 
                 listProfesores.add(profesor);
             }
@@ -67,6 +69,8 @@ public class CrudProfesor {
                 String cui = rs.getString("cui");
                 String genero = rs.getString("genero");
                 Date fechanacimiento = rs.getDate("fechanacimiento");
+                String profesion = rs.getString("profesion");
+                
 
                 profesor = new Profesor();
                 profesor.setId(id);
@@ -75,6 +79,7 @@ public class CrudProfesor {
                 profesor.setCui(cui);
                 profesor.setGenero(genero);
                 profesor.setFechaDeNacimiento(fechanacimiento);
+                profesor.setProfesion(profesion);
 
             }
 
@@ -123,8 +128,8 @@ public class CrudProfesor {
 
     public static Boolean insertar(Profesor profesorInsertar) {
         String sql = " INSERT INTO profesor (activo, nombres, apellidos, "
-                + " fechaNacimiento, cui, genero) "
-                + " VALUES (?, ?, ?, ?, ?, ?)";
+                + " fechaNacimiento, cui, genero, profesion) "
+                + " VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement stmt = ConexionBaseDeDatos.CONNECTION.prepareStatement(sql);
@@ -134,6 +139,7 @@ public class CrudProfesor {
             stmt.setDate(4, profesorInsertar.getFechaDeNacimiento());
             stmt.setString(5, profesorInsertar.getCui());
             stmt.setString(6, profesorInsertar.getGenero());
+            stmt.setString(7, profesorInsertar.getProfesion());
             stmt.executeUpdate();
             return Boolean.TRUE;
         } catch (SQLException e) {
@@ -146,7 +152,7 @@ public class CrudProfesor {
     public static Boolean actualizar(Profesor profesorActualizar) {
         String sql = " UPDATE profesor "
                 + " SET nombres = ?, apellidos = ?, "
-                + " fechaNacimiento = ?, cui = ?, genero = ? "
+                + " fechaNacimiento = ?, cui = ?, genero = ?, profesion = ? "
                 + " WHERE id = ? ";
         try {
             PreparedStatement stmt = ConexionBaseDeDatos.CONNECTION.prepareStatement(sql);
@@ -155,7 +161,8 @@ public class CrudProfesor {
             stmt.setDate(3, profesorActualizar.getFechaDeNacimiento());
             stmt.setString(4, profesorActualizar.getCui());
             stmt.setString(5, profesorActualizar.getGenero());
-            stmt.setLong(6, profesorActualizar.getId());
+            stmt.setString(6, profesorActualizar.getProfesion());
+            stmt.setLong(7, profesorActualizar.getId());
             stmt.executeUpdate();
             return Boolean.TRUE;
         } catch (SQLException e) {
