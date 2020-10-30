@@ -46,6 +46,9 @@ public class ProfesoresSinCursos extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         btnExportar = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Profesores sin cursos");
 
