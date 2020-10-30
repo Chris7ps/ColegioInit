@@ -223,8 +223,8 @@ public class CrudAsignacion {
 
                 Alumno alumno = new Alumno();
                 alumno.setId(rs.getLong("alumnoId"));
-                alumno.setNombres(rs.getString("nombre"));
-                alumno.setApellidos(rs.getString("apellido"));
+                alumno.setNombres(rs.getString("nombres"));
+                alumno.setApellidos(rs.getString("apellidos"));
                 alumno.setCui(rs.getString("cui"));
                 alumno.setGenero(rs.getString("genero"));
                 alumno.setGradoAlumno(rs.getString("grado"));
