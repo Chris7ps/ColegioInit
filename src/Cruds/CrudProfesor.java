@@ -201,6 +201,7 @@ public class CrudProfesor {
                 String cui = rs.getString("cui");
                 String genero = rs.getString("genero");
                 Date fechanacimiento = rs.getDate("fechanacimiento");
+                String profesion = rs.getString("profesion");
 
                 Profesor profesor = new Profesor();
                 profesor.setId(id);
@@ -209,6 +210,8 @@ public class CrudProfesor {
                 profesor.setCui(cui);
                 profesor.setGenero(genero);
                 profesor.setFechaDeNacimiento(fechanacimiento);
+                profesor.setProfesion(profesion);
+                
 
                 listProfesores.add(profesor);
             }

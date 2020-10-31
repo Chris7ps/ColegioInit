@@ -129,7 +129,7 @@ public class ProfesoresSinCursos extends javax.swing.JInternalFrame {
                 }
             };
 
-            String[] columnas = {"Codigo", "Nombres", "Apellidos", "CUI", "Fecha de nacimiento", "Genero"};
+            String[] columnas = {"Codigo", "Nombres", "Apellidos", "CUI", "Fecha de nacimiento", "Genero", "Profesion"};
             tableModel.setColumnIdentifiers(columnas);
             jTable1.setModel(tableModel);
             Object[] fila = new Object[tableModel.getColumnCount()];
@@ -142,6 +142,7 @@ public class ProfesoresSinCursos extends javax.swing.JInternalFrame {
                 fila[3] = profesor.getCui();
                 fila[4] = new SimpleDateFormat("dd/MM/yyyy").format(profesor.getFechaDeNacimiento());
                 fila[5] = profesor.getGenero();
+                fila[6] = profesor.getProfesion();
 
                 tableModel.addRow(fila);
             }
